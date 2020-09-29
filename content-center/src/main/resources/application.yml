@@ -1,0 +1,26 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+server:
+  port: 8090
+spring:
+  application:
+    name: center-center
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+#        namespace: 8bfe984a-0b43-48ba-9541-e23000f6e27e
+
+#  提升首次加载速度
+ribbon:
+  eager-load:
+    enabled: true
+    clients: user-center
+
+#  负载均衡机制为随机
+user-center:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule

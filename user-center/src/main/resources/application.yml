@@ -1,0 +1,27 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+server:
+  port: 8081
+spring:
+  application:
+    name: user-center
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 39.103.140.27:8848
+        metadata:
+          instance: cc
+          version: 1.0
+  # jackson配置
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  # 数据源配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://123.57.51.43:3306/user_center?useUnide=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&serverTimezone=GMT
+    username: root
+    password: 123456
